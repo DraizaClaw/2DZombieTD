@@ -48,7 +48,7 @@ public class PlayerControllerTest : MonoBehaviour
 
         horizontalInput = Input.GetAxis("Horizontal");
 
-        RigidBody.velocity = new Vector2(horizontalInput * speed, RigidBody.velocity.y);
+        RigidBody.linearVelocity = new Vector2(horizontalInput * speed, RigidBody.linearVelocity.y);
         if (horizontalInput > 0)
         {
             LookingRight = true;
@@ -98,7 +98,7 @@ public class PlayerControllerTest : MonoBehaviour
         {
             if (onground == true)
             {
-                RigidBody.velocity = new Vector2(RigidBody.velocity.x, jumpheight);
+                RigidBody.linearVelocity = new Vector2(RigidBody.linearVelocity.x, jumpheight);
             }
 
 
