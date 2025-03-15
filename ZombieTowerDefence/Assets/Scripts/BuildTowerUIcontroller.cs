@@ -6,7 +6,9 @@ public class BuildTowerUIcontroller : MonoBehaviour
 
 
     [SerializeField] private GameObject Panel;
+    [SerializeField] private GameObject InformationPanel;
     [SerializeField] private Text TowerSpecs;
+    [SerializeField] private Button ToggleButton;
 
 
     private void Start()
@@ -22,16 +24,34 @@ public class BuildTowerUIcontroller : MonoBehaviour
             + ("\n" + tower.Description)
             + ("\nRange:" + (tower.Range).ToString());
 
-       
-        Panel.SetActive(true);
+
+        InformationPanel.SetActive(true);
     }
 
     public void HideTowerInformation()
     {
-        
 
-        Panel.SetActive(false); 
+
+        InformationPanel.SetActive(false); 
     }
+
+    public void TogglePanel() 
+    {
+        if (Panel.activeInHierarchy) //if it is there
+        {
+            Panel.SetActive(false); //hide it
+            ToggleButton.transform.localPosition = new Vector2(885, -465);
+            ToggleButton.transform.rotation = new Quaternion(0, 0, 0, 0);
+        }
+        else
+        {
+            Panel.SetActive(true);
+            ToggleButton.transform.localPosition = new Vector2(488, -465);
+            ToggleButton.transform.rotation = new Quaternion(0, 0, 180, 0);
+
+        }
+    }
+
 
 
 }
