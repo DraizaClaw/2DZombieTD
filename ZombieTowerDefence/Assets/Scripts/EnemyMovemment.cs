@@ -3,8 +3,6 @@ using UnityEngine;
 public class EnemyMovemment : MonoBehaviour
 {
 
-    [Header("Refrences")]
- 
     private Rigidbody2D rb;
 
 
@@ -32,6 +30,7 @@ public class EnemyMovemment : MonoBehaviour
 
             if (PathIndex==LevelManager.main.path.Length)
             {
+                EnemySpawner.onEnemyDestroy.Invoke();
                 Destroy(gameObject);
                 return;
             }
